@@ -99,6 +99,15 @@ import java.util.prefs.Preferences;
                 timer.scheduleAtFixedRate(timerTask, 0, 15*60*1000);
             }
         });
+        tableMain.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(tableMain.getSelectedRow()>=0) {
+                    new MagMonStatus(MagMonList.get(tableMain.getSelectedRow()));
+                }
+            }
+        });
     }
 
     public void InitiaslTable(){

@@ -9,10 +9,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="org.seleniumhq.selenium:selenium-java:3.141.59" level="application" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.6" level="application" />
-    <orderEntry type="library" name="org.seleniumhq.selenium:selenium-htmlunit-driver:2.52.0" level="application" />
     <orderEntry type="library" name="org.jsoup:jsoup:1.13.1" level="application" />
     <orderEntry type="library" name="org.jsoup:jsoup:1.12.2" level="application" />
-    <orderEntry type="library" name="org.seleniumhq.selenium:htmlunit-driver:2.42.0" level="application" />
-    <orderEntry type="library" name="net.sourceforge.htmlunit:htmlunit:2.23" level="application" />
+    <orderEntry type="library" name="org.seleniumhq.selenium:selenium-htmlunit-driver:2.52.0" level="application" />
+    <orderEntry type="library" name="org.springframework.boot:spring-boot-starter-web:1.1.3.RELEASE" level="application" />
   </component>
 </module>

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WebHeandlessMagMon {
 
-    public static Boolean autorise2(Integer NumberMagMonList, JTextArea LogOut) throws IOException {
+    public static Boolean autorise(Integer NumberMagMonList, JTextArea LogOut) throws IOException {
         Boolean result = false;
         MagMonRec MagMon = MainForm.MagMonList.get(NumberMagMonList);
         final WebClient webClient = new WebClient();
@@ -37,11 +37,11 @@ public class WebHeandlessMagMon {
         // Теперь «кликаем» на кнопку и переходим на новую страницу.
         final HtmlPage page2 = button.click();
         webClient.close();
-        LogOut.append("autorise2 OK\n");
+        //LogOut.append("autorise OK\n");
         return result;
     }
 
-    public static Boolean autorise3(Integer NumberMagMonList, JTextArea LogOut) throws IOException {
+    public static Boolean getData(Integer NumberMagMonList, JTextArea LogOut) throws IOException {
         Boolean result = false;
         MagMonRec MagMon = MainForm.MagMonList.get(NumberMagMonList);
         final WebClient webClient = new WebClient();
@@ -51,10 +51,10 @@ public class WebHeandlessMagMon {
         HtmlTextInput textBUF = form2.getInputByName("Ch15");
         MainForm.MagMonList.get(NumberMagMonList).setHePress(textBUF.getText());
         MainForm.MagMonList.get(NumberMagMonList).setStatus("ok");
-        LogOut.append(" He Pressure = "+textBUF+"\n");
+        //LogOut.append(" He getData Pressure = "+textBUF+"\n");
         Date date = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm:ss");
-        System.out.println( " He Pressure = "+textBUF +" "+ formatForDateNow.format(date));
+        //System.out.println( " He Pressure = "+textBUF +" "+ formatForDateNow.format(date));
 
         MainForm.MagMonList.get(NumberMagMonList).setLastTime(formatForDateNow.format(date));
 
@@ -75,14 +75,14 @@ public class WebHeandlessMagMon {
 
         textBUF = form2.getInputByName("Ch26");
         MainForm.MagMonList.get(NumberMagMonList).setWaterTemp2(textBUF.getText());
-
+        //LogOut.append(" Ch26 = "+textBUF.getText()+"\n");
         page3 = webClient.getPage("http://"+MagMon.IP+":"+MagMon.Port+"/alarms.html");
         WebResponse response = page3.getWebResponse();
         String content = response.getContentAsString();
         Document doc = (Document) Jsoup.parseBodyFragment(content);
         Elements fullHtml = doc.getElementsByTag("pre");
         //System.out.println(fullHtml.toString());
-        ArrayList<String> bufList = ErrParseAnalyze.ErrParse(fullHtml.toString());
+        ArrayList<String> bufList = ErrParse(fullHtml.toString());
         String buf;
         if(bufList.size()<1){
             buf = "OK";
@@ -94,5 +94,23 @@ public class WebHeandlessMagMon {
         MainForm.MagMonList.get(NumberMagMonList).setErrors(bufList);
         webClient.close();
         return result;
+    }
+
+    public static ArrayList<String> ErrParse(String sourcetext){
+        ArrayList<String> result = null;
+        ArrayList<String> ListStr = new ArrayList<String>();
+        ArrayList<String> ListBuf = new ArrayList<String>();
+        for (String retval : sourcetext.split("\\n")) {
+            ListStr.add(retval);
+        }
+        for(int i=0; i<=ListStr.size()-1;i++){
+            if(ListStr.get(i).contains("<")|(ListStr.get(i).length()<2)|(ListStr.get(i).contains("-"))){
+
+            }
+            else {
+                ListBuf.add(ListStr.get(i));
+            }
+        }
+        return ListBuf;
     }
 }

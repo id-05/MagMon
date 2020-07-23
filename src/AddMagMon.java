@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.Vector;
 
 public class AddMagMon extends JFrame {
     private JButton okButton;
@@ -60,17 +61,18 @@ public class AddMagMon extends JFrame {
 
                         JsonObject NewJson = JsonEdit.AddRec(buffJson, node);
                         MainForm.userPrefs.put("JsonMagMonList", NewJson.toString());
-                        //JOptionPane.showMessageDialog(null,NewJson.toString());
-                        //MainForm.refrashTable();
-                        MainForm.tableModel.setRowCount(0);
+                        MagMonList = JsonEdit.GetMagMonList(NewJson);
 
                         //обновляем модель таблицы
-                        MagMonList = JsonEdit.GetMagMonList(NewJson);
-                        Object[][] array = new String[MagMonList.size()][6];
-                        for (int i = 0; i <= MagMonList.size()-1; i++){
-                            array[i][0]=MagMonList.get(i).getName();
-                        }
-                        for (Object[] objects : array) MainForm.tableModel.addRow(objects);
+//                        MainForm.tableModel.setRowCount(0);
+//                        Object[][] array = new String[MagMonList.size()][6];
+//                        for (int i = 0; i <= MagMonList.size()-1; i++){
+//                            array[i][0]=MagMonList.get(i).getName();
+//                        }
+//                        for (Object[] objects : array) MainForm.tableModel.addRow(objects);
+                        Object[] array = new String[6];
+                        array[0]=node.getName();
+                        MainForm.tableModel.addRow(array);
 
                         dispose();
                     }

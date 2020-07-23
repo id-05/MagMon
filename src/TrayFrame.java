@@ -1,28 +1,26 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
 public class TrayFrame extends JFrame {
     public static TrayFrame app;
-    private TrayIcon iconTr;
-    private SystemTray sT = SystemTray.getSystemTray();
+    private TrayIcon trayIcon;
+    private SystemTray systemTray = SystemTray.getSystemTray();
     public boolean chetTray = false; //переменная, чтобы был вывод сообщения в трее только при первом сворачивании
 
     public TrayFrame() throws IOException {
         super("Демонстрация сворачивания в трей");
         URL imageURL = this.getClass().getResource("/Ikonka.png");
         Image icon = Toolkit.getDefaultToolkit().getImage(imageURL);
-        iconTr = new TrayIcon(icon, "Демонстрация сворачивания в трей"); //Ikonka.png - изображение, которое будет показываться в трее - картинка в каталоге исполняемого приложения
-        iconTr.setImageAutoSize(true);
-        iconTr.addActionListener(new ActionListener() {
+        trayIcon = new TrayIcon(icon, "Демонстрация сворачивания в трей"); //Ikonka.png - изображение, которое будет показываться в трее - картинка в каталоге исполняемого приложения
+        trayIcon.setImageAutoSize(true);
+        trayIcon.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 setVisible(true);
                 setState(JFrame.NORMAL);
-                removeTr();
+                removeTray();
             }
         });
         //обработчик мыши
@@ -42,7 +40,7 @@ public class TrayFrame extends JFrame {
             public void mouseReleased(MouseEvent ev) {
             }
         };
-        iconTr.addMouseListener(mouS);
+        trayIcon.addMouseListener(mouS);
         MouseMotionListener mouM = new MouseMotionListener() {
             public void mouseDragged(MouseEvent ev) {
             }
@@ -50,30 +48,30 @@ public class TrayFrame extends JFrame {
             //при наведении
             public void mouseMoved(MouseEvent ev) {
                 boolean flg = false;
-                iconTr.setToolTip("Двойной щелчок - развернуть");
+                trayIcon.setToolTip("Двойной щелчок - развернуть");
             }
         };
 
-        iconTr.addMouseMotionListener(mouM);
+        trayIcon.addMouseMotionListener(mouM);
         addWindowStateListener(new WindowStateListener() {
             public void windowStateChanged(WindowEvent ev) {
                 if (ev.getNewState() == JFrame.ICONIFIED) {
                     setVisible(false);
-                    addT();
+                    addTray();
                 }
             }
         });
     }
 
     // метод удаления из трея
-    private void removeTr() {
-        sT.remove(iconTr);
+    private void removeTray() {
+        systemTray.remove(trayIcon);
     }
 
     // метод добавления в трей
-    private void addT() {
+    private void addTray() {
         try {
-            sT.add(iconTr);
+            systemTray.add(trayIcon);
             chetTray = true;
         } catch (AWTException ex) {
             ex.printStackTrace();
@@ -84,7 +82,7 @@ public class TrayFrame extends JFrame {
         app = new TrayFrame();
         app.setVisible(true);
         app.setAlwaysOnTop(true);
-        app.setSize(777, 777);
+        //app.setSize(777, 777);
 
         //обработчик основного окна - здесь необходимо перечислить все возможные действия - раз взялись обрабатывать, надо делать до конца :)
         app.addWindowListener(new WindowListener() {

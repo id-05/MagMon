@@ -16,9 +16,9 @@ public class MainTask extends TimerTask {
     public void run() {
         Object[][] array = new String[MainForm.MagMonList.size()][9];
         Date date = new Date();
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat();
+        Date currentDate = new Date();
         for(int i=0; i<=MainForm.MagMonList.size()-1;i++) {
-
             try {
                 WebHeandlessMagMon.autorise(i, LogOut);
                 WebHeandlessMagMon.getData(i, LogOut);
@@ -32,11 +32,29 @@ public class MainTask extends TimerTask {
                     array[i][6] = MainForm.MagMonList.get(i).getWaterFlow2();
                     array[i][7] = MainForm.MagMonList.get(i).getStatus();
                     array[i][8] = MainForm.MagMonList.get(i).getLastTime();
+                LogOut.append(formatForDateNow.format(currentDate)+
+                        ":   Name: "+MainForm.MagMonList.get(i).getName()+
+                        "; HePress: "+MainForm.MagMonList.get(i).getHePress()+
+                        "; HeLevel: "+MainForm.MagMonList.get(i).getHeLevel()+
+                        "; WaterTemp1: "+MainForm.MagMonList.get(i).getWaterTemp1()+
+                        "; WaterFlow1: "+MainForm.MagMonList.get(i).getWaterFlow1()+
+                                "; WaterTemp2: "+MainForm.MagMonList.get(i).getWaterTemp2()+
+                                "; WaterFlow2:"+MainForm.MagMonList.get(i).getWaterFlow2()+
+                                "; Status: "+MainForm.MagMonList.get(i).getStatus()+
+                                "\n"
+
+                        );
             } catch (IOException e) {
                 MainForm.tableModel.setRowCount(0);
                 array[i][0] = MainForm.MagMonList.get(i).getName();
                 array[i][7] = "No Connect";
                 array[i][8] = formatForDateNow.format(date);
+                LogOut.append(formatForDateNow.format(currentDate)+
+                        ":   Name: "+MainForm.MagMonList.get(i).getName()+
+                        "; Status: No Connect"+
+                        "\n"
+
+                );
                 e.printStackTrace();
             }
         }

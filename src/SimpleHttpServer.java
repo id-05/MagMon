@@ -12,22 +12,17 @@ public class SimpleHttpServer {
         this.server = server;
         server = HttpServer.create();
         server.bind(new InetSocketAddress(WebPort), 0);
-
         HttpContext context = server.createContext("/", new EchoHandler());
+        HttpContext context2 = server.createContext("/json", new AndroidHandler());
         context.setAuthenticator(new Auth());
-
         server.setExecutor(null);
         server.start();
-        MainForm.serverIsLife = true;
     }
 
     static class EchoHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             StringBuilder builder = new StringBuilder();
-
-           // builder.append("<h1>URI: ").append(exchange.getRequestURI()).append("</h1>");
-
             Headers headers = exchange.getRequestHeaders();
 //            for (String header : headers.keySet()) {
 //                builder.append("<p>").append(header).append("=")
@@ -79,13 +74,51 @@ public class SimpleHttpServer {
             //builder.append("<p style=\"text-align: center;\"><a href=\"mailto:id-05@mail.ru\">id-05@mail.ru</a></p>");
             builder.append("<p style=\"text-align: center;\"><a title=\"@malinin_vs\" href=\"https://www.instagram.com/malinin_vs/\" target=\"_blank\" rel=\"noopener\">@malinin_vs</a></p>");
             builder.append("<p style=\"text-align: center;\"><input type=\"button\" onclick='window.location.reload()' value=\"RELOAD\" /></p>");
-
             builder.append("</body>");
             builder.append("</html>");
-
             byte[] bytes = builder.toString().getBytes();
             exchange.sendResponseHeaders(200, bytes.length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(bytes);
+            os.close();
+        }
+    }
 
+    static class AndroidHandler implements HttpHandler{
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            StringBuilder builder = new StringBuilder();
+            Headers headers = exchange.getRequestHeaders();
+//            for (String header : headers.keySet()) {
+//                builder.append("<p>").append(header).append("=")
+//                        .append(headers.getFirst(header)).append("</p>");
+//            }
+            builder.append("<head>");
+            builder.append("<title>MAGNET MONITOR REMOTE VIEWER</title>");
+            builder.append("<style type=\"text/css\">");
+
+            builder.append("</style>");
+            builder.append("</head>");
+            builder.append("<body bgcolor = \"#ffffcc\" text = \"#000000\">");
+
+            builder.append("<p style=\"text-align: center;\">&nbsp;</p>");
+            builder.append("<h1 style=\"text-align: center;\"><strong>SALUT</strong></h1>");
+            builder.append("<p style=\"text-align: center;\">&nbsp;</p>");
+            builder.append("<table style=\"height: 68px; border-color: black; width: 800px; margin-left: auto; margin-right: auto;\" border=\"6\" cellpadding=\"6\"><caption>&nbsp;</caption>");
+            builder.append("<tbody>");
+
+            builder.append("</tbody>");
+            builder.append("</table>");
+            builder.append("<p>&nbsp;</p>");
+            builder.append("<p style=\"text-align: center;\">THANKS</p>");
+            builder.append("<p style=\"text-align: center;\"><a href=\"http://bit-service.org\" target=\"_blank\" rel=\"noopener\">bit-service.org</a></p>");
+            //builder.append("<p style=\"text-align: center;\"><a href=\"mailto:id-05@mail.ru\">id-05@mail.ru</a></p>");
+            builder.append("<p style=\"text-align: center;\"><a title=\"@malinin_vs\" href=\"https://www.instagram.com/malinin_vs/\" target=\"_blank\" rel=\"noopener\">@malinin_vs</a></p>");
+            builder.append("<p style=\"text-align: center;\"><input type=\"button\" onclick='window.location.reload()' value=\"RELOAD\" /></p>");
+            builder.append("</body>");
+            builder.append("</html>");
+            byte[] bytes = builder.toString().getBytes();
+            exchange.sendResponseHeaders(200, bytes.length);
             OutputStream os = exchange.getResponseBody();
             os.write(bytes);
             os.close();
@@ -95,8 +128,8 @@ public class SimpleHttpServer {
     static class Auth extends Authenticator {
         @Override
         public Result authenticate(HttpExchange httpExchange) {
-            if ("/forbidden".equals(httpExchange.getRequestURI().toString()))
-                return new Failure(403);
+            if ("/android".equals(httpExchange.getRequestURI().toString()))
+                return new Success(new HttpPrincipal("c0nst", "realm"));
             else
                 return new Success(new HttpPrincipal("c0nst", "realm"));
         }

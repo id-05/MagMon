@@ -3,6 +3,7 @@ import com.google.gson.JsonParser;
 import com.sun.net.httpserver.HttpServer;
 //import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +15,7 @@ import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -183,15 +185,12 @@ import java.util.prefs.Preferences;
 
         class DigitFilter extends DocumentFilter {
             private static final String DIGITS = "\\d+";
-
             @Override
             public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
-
                 if (string.matches(DIGITS)) {
                     super.insertString(fb, offset, string, attr);
                 }
             }
-
             @Override
             public void replace(FilterBypass fb, int offset, int length, String string, AttributeSet attrs) throws BadLocationException {
                 if (string.matches(DIGITS)) {
@@ -206,19 +205,14 @@ import java.util.prefs.Preferences;
     }
 
     public static void main(String[] args) throws IOException {
-        new  MainForm();
+        final MainForm MainFormNew = new  MainForm();
+        Image icon =ImageIO.read(MainForm.class.getResourceAsStream("/Ikonka.png"));
+        MainFormNew.setIconImage(icon);
     }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
-
-        @Override
-        public void dispose() {
-            System.out.println("close");
-            super.dispose();
-
-        }
 
 
     }

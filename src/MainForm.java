@@ -15,8 +15,9 @@ import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -37,6 +38,7 @@ import java.util.prefs.Preferences;
         private JButton saveButton;
         private JButton reloadButton;
         private JButton reloadNowButton;
+        private JButton openWebServiceButton;
         public static Preferences userPrefs;
         public static JsonParser parser = new JsonParser();
         JsonObject buffJson;
@@ -45,7 +47,7 @@ import java.util.prefs.Preferences;
         public Integer WebPort;
         TimerTask timerTask;
         Timer timer;
-        SimpleHttpServer webServer;
+        MagMonHttpServer webServer;
         HttpServer server;
 
     public  MainForm() throws IOException {
@@ -61,7 +63,7 @@ import java.util.prefs.Preferences;
         TabPane1.setForeground(Color.white);
         Font font = new Font("Verdana", Font.BOLD, 18);
         TabPane1.setFont(font);
-        setTitle("Magnet Monitor 3 RemoteViewer");
+        setTitle("Magnet Monitor 3 RemoteViewer v1.0");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Initialisation();
         refrashTable();
@@ -120,6 +122,18 @@ import java.util.prefs.Preferences;
                 reloadTimeAndWeb();
             }
         });
+        openWebServiceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI("http://localhost:"+WebPort));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                } catch (URISyntaxException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
     public void Initialisation(){
@@ -158,7 +172,7 @@ import java.util.prefs.Preferences;
     }
 
     public void WebServerStart(){
-        webServer = new SimpleHttpServer();
+        webServer = new MagMonHttpServer();
         try {
             webServer.main(WebPort,server);
         } catch (Exception e) {

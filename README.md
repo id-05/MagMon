@@ -32,4 +32,4 @@
 - Антивирусы и защитник Windows могут блокировать сетевые функции программы, рекомендуется запускать программу с правами администратора;
 
 
-[Скачать Magnet Monitor Remote Viewer](https://github.com/id-05/MagnetMonitorRemoteViewerServer/blob/master/out/artifacts/MagMon_jar/MagMon.jar)
+[Скачать Magnet Monitor Remote Viewer](https://github.com/id-05/MagnetMonitorRemoteViewerServer/raw/master/out/artifacts/MagMon_jar/MagMon.jar)

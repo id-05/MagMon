@@ -1,3 +1,5 @@
+![](https://github.com/id-05/MagnetMonitorRemoteViewerServer/images/preview.jpg)
+
 # Magnet Monitor Remote Viewer
 
 ### Описание

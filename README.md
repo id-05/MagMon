@@ -1,6 +1,6 @@
-#Magnet Monitor Remote Viewer
+# Magnet Monitor Remote Viewer
 
-###Описание
+### Описание
 
 - Программа для удаленного просмотра параметров GE Magnet Monitor 3;
 - Кросплатформенное консольное приложение;

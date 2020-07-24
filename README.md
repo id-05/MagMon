@@ -1,6 +1,6 @@
 ![](https://github.com/id-05/MagnetMonitorRemoteViewerServer/blob/master/images/preview.jpg)
 
-images/preview.jpg
+
 
 # Magnet Monitor Remote Viewer
 

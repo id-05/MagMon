@@ -47,6 +47,31 @@ public class JsonEdit {
         return jsonObj;
     }
 
+    public static String MagMonListToJson(ArrayList<MagMonRec> MagMonList){
+        String result = null;
+        JsonObject jsonObj = new JsonObject();
+        JsonObject jsonBuf = new JsonObject();
+        for(int i=0; i<=MagMonList.size()-1; i++){
+            MagMonRec node = MainForm.MagMonList.get(i);
+            jsonBuf.addProperty("HePress",node.getHePress());
+            jsonBuf.addProperty("HeLevel",node.getHeLevel());
+            jsonBuf.addProperty("WT1",node.getWaterTemp1());
+            jsonBuf.addProperty("WF1",node.getWaterFlow1());
+            jsonBuf.addProperty("WT2",node.getWaterTemp2());
+            jsonBuf.addProperty("WF2",node.getWaterFlow2());
+            jsonBuf.addProperty("LastUpdate",node.getLastTime());
+            JsonArray jsonError = new JsonArray();
+            ArrayList<String> bufArray = node.getErrors();
+                for (int j = 0; j <= bufArray.size() - 1; j++) {
+                    jsonError.add(bufArray.get(j));
+                }
+            jsonBuf.add("Errors", jsonError);
+            jsonObj.add(node.Name, jsonBuf);
+        }
+        result = jsonObj.toString();
+        return result;
+    }
+
     public static void DeleteRec(JsonObject SourceJson, int DelRecNumber){
         Set<String> keys = SourceJson.keySet();
         Object[] jsonkeys = keys.toArray();

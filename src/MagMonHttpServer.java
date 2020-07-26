@@ -3,6 +3,7 @@ import com.sun.net.httpserver.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.net.PasswordAuthentication;
 
 public class MagMonHttpServer {
     HttpServer server;
@@ -98,7 +99,8 @@ public class MagMonHttpServer {
 //                builder.append("<p>").append(header).append("=")
 //                        .append(headers.getFirst(header)).append("</p>");
 //            }
-            builder.append("тест передачи настроек в json");
+            builder.append(JsonEdit.MagMonListToJson(MainForm.MagMonList));
+            //builder.append("asd");
 
             byte[] bytes = builder.toString().getBytes();
             exchange.sendResponseHeaders(200, bytes.length);
@@ -109,16 +111,28 @@ public class MagMonHttpServer {
     }
 
     static class Auth extends Authenticator {
+
+//        public Auth(String s) {
+//            super(s);
+//        }
+
+//        @Override
+//        public boolean checkCredentials(String user, String pwd) {
+//            return user.equals("admin") && pwd.equals("admin");
+//        }
+
         @Override
         public Result authenticate(HttpExchange httpExchange) {
-            if ("/android".equals(httpExchange.getRequestURI().toString()))
+            if ("/json".equals(httpExchange.getRequestURI().toString()))
                 return new Success(new HttpPrincipal("c0nst", "realm"));
             else
                 return new Success(new HttpPrincipal("c0nst", "realm"));
         }
+
+//        @Override
+//        public boolean checkCredentials(String s, String s1) {
+//            return false;
+//        }
     }
 
-    public void stop(){
-
-    }
 }

@@ -24,7 +24,7 @@ public class MagMonStatus extends JFrame {
         //MainPanel.setForeground(Color.white);
         Font font = new Font("Verdana", Font.CENTER_BASELINE, 18);
         MainPanel.setFont(font);
-        setTitle("Magnet Monitor "+MagMon.getName()+" Status");
+        setTitle("Magnet Monitor " + MagMon.getName() + " Status");
         setVisible(true);
         textName.setText(MagMon.getName());
         textHePress.setText(MagMon.getHePress());
@@ -35,9 +35,13 @@ public class MagMonStatus extends JFrame {
         textWF2.setText(MagMon.getWaterFlow2());
         textUpdate.setText(MagMon.getLastTime());
         textArea1.append(" Errors:"+"\n");
-        ArrayList<String> bufList = MagMon.getErrors();
-        for(int i=0; i<=bufList.size()-1;i++){
-            textArea1.append(bufList.get(i)+"\n");
+        try {
+            ArrayList<String> bufList = MagMon.getErrors();
+            for (int i = 0; i <= bufList.size() - 1; i++) {
+                textArea1.append(bufList.get(i) + "\n");
+            }
+        }catch (Exception e){
+            System.out.println("error = "+e.getMessage());
         }
     }
 }

@@ -84,8 +84,6 @@ import java.util.prefs.Preferences;
                     buffJson = MainForm.parser.parse(buf).getAsJsonObject();
                     JsonEdit.DeleteRec(buffJson,tableMain.getSelectedRow());
                     tableModel.removeRow(tableMain.getSelectedRow());
-                    //Initialisation();
-                    //refrashTable();
                 }
             }
         });

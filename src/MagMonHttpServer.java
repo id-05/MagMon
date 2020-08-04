@@ -3,7 +3,6 @@ import com.sun.net.httpserver.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.net.PasswordAuthentication;
 
 public class MagMonHttpServer {
     HttpServer server;
@@ -99,7 +98,8 @@ public class MagMonHttpServer {
 //                builder.append("<p>").append(header).append("=")
 //                        .append(headers.getFirst(header)).append("</p>");
 //            }
-            builder.append(JsonEdit.MagMonListToJson(MainForm.MagMonList));
+            String buf = JsonEdit.MagMonListToJson(MainForm.MagMonList);
+            builder.append(buf);
             //builder.append("asd");
 
             byte[] bytes = builder.toString().getBytes();
@@ -111,16 +111,6 @@ public class MagMonHttpServer {
     }
 
     static class Auth extends Authenticator {
-
-//        public Auth(String s) {
-//            super(s);
-//        }
-
-//        @Override
-//        public boolean checkCredentials(String user, String pwd) {
-//            return user.equals("admin") && pwd.equals("admin");
-//        }
-
         @Override
         public Result authenticate(HttpExchange httpExchange) {
             if ("/json".equals(httpExchange.getRequestURI().toString()))
@@ -128,11 +118,5 @@ public class MagMonHttpServer {
             else
                 return new Success(new HttpPrincipal("c0nst", "realm"));
         }
-
-//        @Override
-//        public boolean checkCredentials(String s, String s1) {
-//            return false;
-//        }
     }
-
 }

@@ -1,6 +1,10 @@
+//import com.google.gson.JsonArray;
+//import com.google.gson.JsonElement;
+//import com.google.gson.JsonObject;
+
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import netscape.javascript.JSObject;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -47,13 +51,13 @@ public class JsonEdit {
         return jsonObj;
     }
 
-    public static String MagMonListToJson(ArrayList<MagMonRec> MagMonList){
+    public static String MagMonListToJson(ArrayList<MagMonRec> MMList){
         String result = null;
         JsonObject jsonObj = new JsonObject();
-        JsonObject jsonBuf = new JsonObject();
-        for(int i=0; i<=MagMonList.size()-1; i++){
+        for(int i=0; i<=MainForm.MagMonList.size()-1; i++){
             MagMonRec node = MainForm.MagMonList.get(i);
-            jsonBuf.addProperty("HePress",node.getHePress());
+            JsonObject jsonBuf = new JsonObject();
+            jsonBuf.addProperty("HePress",MainForm.MagMonList.get(i).getHePress());
             jsonBuf.addProperty("HeLevel",node.getHeLevel());
             jsonBuf.addProperty("WT1",node.getWaterTemp1());
             jsonBuf.addProperty("WF1",node.getWaterFlow1());
@@ -66,7 +70,7 @@ public class JsonEdit {
                     jsonError.add(bufArray.get(j));
                 }
             jsonBuf.add("Errors", jsonError);
-            jsonObj.add(node.Name, jsonBuf);
+            jsonObj.add(node.getName(), jsonBuf);
         }
         result = jsonObj.toString();
         return result;

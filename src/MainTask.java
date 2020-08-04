@@ -23,12 +23,11 @@ public class MainTask extends TimerTask {
             try {
                 boolean autoriseOk = WebHeandlessMagMon.autorise(i, LogOut);
                 System.out.println(" Autorise " + autoriseOk);
-                MainForm.tableModel.setRowCount(0);
+                //MainForm.tableModel.setRowCount(0);
                 if(autoriseOk){
                     WebHeandlessMagMon.getData(i, LogOut);
-                    //MainForm.tableModel.setRowCount(0);
                     array[i][0] = MainForm.MagMonList.get(i).getName();
-                    array[i][1] = MainForm.MagMonList.get(i).getHePress();
+                    array[i] [1] = MainForm.MagMonList.get(i).getHePress();
                     array[i][2] = MainForm.MagMonList.get(i).getHeLevel();
                     array[i][3] = MainForm.MagMonList.get(i).getWaterTemp1();
                     array[i][4] = MainForm.MagMonList.get(i).getWaterFlow1();
@@ -43,16 +42,15 @@ public class MainTask extends TimerTask {
                                     "; WaterTemp2: "+MainForm.MagMonList.get(i).getWaterTemp2()+ "; WaterFlow2:"+MainForm.MagMonList.get(i).getWaterFlow2()+
                                 "; Status: "+MainForm.MagMonList.get(i).getStatus()+ "\n");
                 }else{
-                    MainForm.tableModel.setRowCount(0);
                     array[i][0] = MainForm.MagMonList.get(i).getName();
                     array[i][7] = "No Connect";
                     array[i][8] = formatForDateNow.format(date);
                     ArrayList<String> bufList = new ArrayList<>();
-                    bufList.add("No");
+                    bufList.add("No Connect");
                     MainForm.MagMonList.get(i).setErrors(bufList);
+                    MainForm.MagMonList.get(i).setLastTime(formatForDateNow.format(date));
                     LogOut.append(formatForDateNow.format(currentDate)+ ":   Name: "+MainForm.MagMonList.get(i).getName()+ "; Status: No Connect"+ "\n");
-                    //e.printStackTrace();
-                    System.out.println("errorrs");
+                    System.out.println("error connect");
                 }
             } catch (IOException e) {
 //                MainForm.tableModel.setRowCount(0);
@@ -67,6 +65,7 @@ public class MainTask extends TimerTask {
 //                System.out.println("errorrs");
             }
         }
-            for (Object[] objects : array) MainForm.tableModel.addRow(objects);
+        MainForm.tableModel.setRowCount(0);
+             for (Object[] objects : array) MainForm.tableModel.addRow(objects);
     }
 }

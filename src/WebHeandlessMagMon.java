@@ -3,17 +3,13 @@ import com.gargoylesoftware.htmlunit.WebResponse;
 import com.gargoylesoftware.htmlunit.html.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class WebHeandlessMagMon {
 
@@ -51,7 +47,6 @@ public class WebHeandlessMagMon {
         final WebClient webClient = new WebClient();
         HtmlPage page3 = webClient.getPage("http://"+MagMon.IP+":"+MagMon.Port+"/coldhead.html");
         HtmlForm form2 = page3.getFormByName("curVal");
-
         HtmlTextInput textBUF = form2.getInputByName("Ch15");
         MainForm.MagMonList.get(NumberMagMonList).setHePress(textBUF.getText());
         MainForm.MagMonList.get(NumberMagMonList).setStatus("ok");
@@ -79,13 +74,13 @@ public class WebHeandlessMagMon {
 
         textBUF = form2.getInputByName("Ch26");
         MainForm.MagMonList.get(NumberMagMonList).setWaterTemp2(textBUF.getText());
-        //LogOut.append(" Ch26 = "+textBUF.getText()+"\n");
+
         page3 = webClient.getPage("http://"+MagMon.IP+":"+MagMon.Port+"/alarms.html");
         WebResponse response = page3.getWebResponse();
         String content = response.getContentAsString();
         Document doc = (Document) Jsoup.parseBodyFragment(content);
         Elements fullHtml = doc.getElementsByTag("pre");
-        //System.out.println(fullHtml.toString());
+
         ArrayList<String> bufList = ErrParse(fullHtml.toString());
         String buf;
         if(bufList.size()<1){

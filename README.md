@@ -1,6 +1,36 @@
 ![](https://github.com/id-05/MagnetMonitorRemoteViewerServer/blob/master/images/preview.jpg)
 
 
+# Magnet Monitor Remote Viewer
+
+### Description
+
+- Program for remote viewing of GE Magnet Monitor 3 parameters;
+- Cross-platform console application;
+- Uses HtmlUnitDriver and emulates the operator's work with the Web interface;
+- Hiding in a trey;
+- Keeps the equipment survey log;
+- Allows you to view errors on your device;
+- Provides its own Web interface for remote monitoring;
+
+
+### How to use
+
+- The computer must have a Java interpreter installed, you can download from here: https://www.java.com/ru/download/
+- It is enough to start the Web interface on the device once (press the buttons on the device console: Service mode - Service mode - Yes);
+- You must know its address on your LAN in the device settings (Data button);
+- Start the Magnet Monitor Remote Viewer;
+- Make sure that the computer on which you run the program is on the same LAN as your device;
+- Add your device using the Add Equipment form;
+- Configure the hardware polling interval on the Settings tab, default is 15 minutes;
+- Select the port for the program web interface, default 8765;
+- To access the Web interface, in the address bar of the browser, type: http ://localhost: 8765 - where localhost - the address of the machine on which the program is running;
+
+
+### Caution
+
+- To access the GE Magnet Monitor 3 Web interface, this program sends the administrator login and password in open form, make sure that the configuration of your local network prevents this data from reaching third parties;
+- Antivirus and Windows Defender can block the network functions of the program, it is recommended to run the program with administrative rights;
 
 # Magnet Monitor Remote Viewer
 

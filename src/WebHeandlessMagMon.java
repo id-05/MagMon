@@ -23,10 +23,9 @@ public class WebHeandlessMagMon {
             // Выбираем нужную форму,
             // находим кнопку отправки и поле, которое нужно заполнить.
             final HtmlForm form = page1.getFormByName("login");
-
             final HtmlTextInput textLogin = form.getInputByName("UserName");
             final HtmlPasswordInput textPass = form.getInputByName("PassWord");
-            final HtmlSubmitInput button = form.getInputByValue("Submit");// .getInputByName("submitbutton");
+            final HtmlSubmitInput button = form.getInputByValue("Submit");
 
             // Записывает в найденное поле нужное значение.
             textLogin.setValueAttribute(MagMon.Login);
@@ -50,10 +49,8 @@ public class WebHeandlessMagMon {
         HtmlTextInput textBUF = form2.getInputByName("Ch15");
         MainForm.MagMonList.get(NumberMagMonList).setHePress(textBUF.getText());
         MainForm.MagMonList.get(NumberMagMonList).setStatus("ok");
-        //LogOut.append(" He getData Pressure = "+textBUF+"\n");
         Date date = new Date();
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm:ss");
-        //System.out.println( " He Pressure = "+textBUF +" "+ formatForDateNow.format(date));
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm");
 
         MainForm.MagMonList.get(NumberMagMonList).setLastTime(formatForDateNow.format(date));
 
@@ -74,6 +71,80 @@ public class WebHeandlessMagMon {
 
         textBUF = form2.getInputByName("Ch26");
         MainForm.MagMonList.get(NumberMagMonList).setWaterTemp2(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch3");
+        MainForm.MagMonList.get(NumberMagMonList).setHeLevelTopCurrent(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch4");
+        MainForm.MagMonList.get(NumberMagMonList).setHeLevelTop(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch5");
+        MainForm.MagMonList.get(NumberMagMonList).setReconRuOCurrent(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch6");
+        MainForm.MagMonList.get(NumberMagMonList).setReconRuO(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch7");
+        MainForm.MagMonList.get(NumberMagMonList).setSpareScanRoom1A(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch8");
+        MainForm.MagMonList.get(NumberMagMonList).setShieldTempCurrent(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch9");
+        MainForm.MagMonList.get(NumberMagMonList).setShieldTemp(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch10");
+        MainForm.MagMonList.get(NumberMagMonList).setReconSi410Current(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch11");
+        MainForm.MagMonList.get(NumberMagMonList).setReconSi410(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch12");
+        MainForm.MagMonList.get(NumberMagMonList).setSpareScanRoom1B(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch13");
+        MainForm.MagMonList.get(NumberMagMonList).setColdheadRuOCurrent(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch18");
+        MainForm.MagMonList.get(NumberMagMonList).setSCPressure(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch19");
+        MainForm.MagMonList.get(NumberMagMonList).setSpareCmp1b(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch20");
+        MainForm.MagMonList.get(NumberMagMonList).setSpareCmp1c(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch21");
+        MainForm.MagMonList.get(NumberMagMonList).setReconSi4102a(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch22");
+        MainForm.MagMonList.get(NumberMagMonList).setReconSi4102aCurrent(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch23");
+        MainForm.MagMonList.get(NumberMagMonList).setReconSi4102b(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch24");
+        MainForm.MagMonList.get(NumberMagMonList).setReconSi4102bCurrent(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch27");
+        MainForm.MagMonList.get(NumberMagMonList).setVoltsPlusExternal(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch28");
+        MainForm.MagMonList.get(NumberMagMonList).setVoltsPlus(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch29");
+        MainForm.MagMonList.get(NumberMagMonList).setVoltsMinus(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch30");
+        MainForm.MagMonList.get(NumberMagMonList).setVoltsMinusExternal(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch31");
+        MainForm.MagMonList.get(NumberMagMonList).setHFOBottomShield(textBUF.getText());
+
+        textBUF = form2.getInputByName("Ch32");
+        MainForm.MagMonList.get(NumberMagMonList).setMagmonCaseTemp(textBUF.getText());
+
+
 
         page3 = webClient.getPage("http://"+MagMon.IP+":"+MagMon.Port+"/alarms.html");
         WebResponse response = page3.getWebResponse();

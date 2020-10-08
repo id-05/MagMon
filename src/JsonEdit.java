@@ -67,9 +67,39 @@ public class JsonEdit {
             JsonArray jsonError = new JsonArray();
             ArrayList<String> bufArray = node.getErrors();
                 for (int j = 0; j <= bufArray.size() - 1; j++) {
-                    jsonError.add(bufArray.get(j));
+                    jsonError.add(bufArray.get(j).trim());
                 }
             jsonBuf.add("Errors", jsonError);
+                //   new
+            jsonBuf.addProperty("HeLevelCurrent",node.getHeLevelCurrent());
+            jsonBuf.addProperty("HeLevelTopCurrent",node.getHeLevelTopCurrent());
+            jsonBuf.addProperty("HeLevelTop",node.getHeLevelTop());
+            jsonBuf.addProperty("ReconRuOCurrent",node.getReconRuOCurrent());
+            jsonBuf.addProperty("ReconRuO",node.getReconRuO());
+            jsonBuf.addProperty("SpareScanRoom1A",node.getSpareScanRoom1A());
+            jsonBuf.addProperty("ShieldTempCurrent",node.getShieldTempCurrent());
+            jsonBuf.addProperty("ShieldTemp",node.getShieldTemp());
+            jsonBuf.addProperty("ReconSi410Current",node.getReconSi410Current());
+            jsonBuf.addProperty("ReconSi410",node.getReconSi410());
+            jsonBuf.addProperty("SpareScanRoom1B",node.getSpareScanRoom1B());
+            jsonBuf.addProperty("ColdheadRuOCurrent",node.getColdheadRuOCurrent());
+            jsonBuf.addProperty("ColdheadTemp",node.getColdheadTemp());
+            jsonBuf.addProperty("SCPressure",node.getSCPressure());
+            jsonBuf.addProperty("SpareCmp1b",node.getSpareCmp1b());
+            jsonBuf.addProperty("SpareCmp1c",node.getSpareCmp1c());
+            jsonBuf.addProperty("ReconSi4102a",node.getReconSi4102a());
+            jsonBuf.addProperty("ReconSi4102aCurrent",node.getReconSi4102aCurrent());
+            jsonBuf.addProperty("ReconSi4102b",node.getReconSi4102b());
+            jsonBuf.addProperty("ReconSi4102bCurrent",node.getReconSi4102bCurrent());
+            jsonBuf.addProperty("VoltsPlusExternal",node.getVoltsPlusExternal());
+            jsonBuf.addProperty("VoltsPlus",node.getVoltsPlus());
+            jsonBuf.addProperty("VoltsMinus",node.getVoltsMinus());
+            jsonBuf.addProperty("VoltsMinusExternal",node.getVoltsMinusExternal());
+            jsonBuf.addProperty("HFOBottomShield",node.getHFOBottomShield());
+            jsonBuf.addProperty("MagmonCaseTemp",node.getMagmonCaseTemp());
+
+
+
             jsonObj.add(node.getName(), jsonBuf);
         }
         result = jsonObj.toString();

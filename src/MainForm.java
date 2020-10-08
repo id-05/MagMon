@@ -24,13 +24,11 @@ import java.util.TimerTask;
 import java.util.prefs.Preferences;
 
     public class MainForm extends TrayFrame{
-        public static boolean serverIsLife;
         private CustomTable tableMain;
         public static DefaultTableModel tableModel = new DefaultTableModel();
         private JButton AddButton;
         private JTabbedPane TabPane1;
         private JButton deleteButton;
-        //private JButton checkConnectionButton;
         private JTextArea textArea1;
         private JPanel loglist;
         private JSpinner spinner1;

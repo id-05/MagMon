@@ -35,7 +35,7 @@
 - To access the GE Magnet Monitor 3 Web interface, this program sends the administrator login and password in open form, make sure that the configuration of your local network prevents this data from reaching third parties;
 - Antivirus and Windows Defender can block the network functions of the program, it is recommended to run the program with administrative rights;
 
-# [Скачать Magnet Monitor Remote Viewer](https://github.com/id-05/MagnetMonitorRemoteViewerServer/raw/master/out/artifacts/MagMon_jar/MagMon.jar)
+# [Download Magnet Monitor Remote Viewer](https://github.com/id-05/MagnetMonitorRemoteViewerServer/raw/master/out/artifacts/MagMon_jar/MagMon.jar)
 
 
 # Magnet Monitor Remote Viewer

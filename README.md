@@ -9,9 +9,12 @@
 - Cross-platform console application;
 - Uses HtmlUnitDriver and emulates the operator's work with the Web interface;
 - Hiding in a trey;
-- Keeps the equipment survey log;
 - Allows you to view errors on your device;
 - Provides its own Web interface for remote monitoring;
+- For operational remote information, there is a built-in telegram-bot,
+  but you will have to create a bot and a chat where it will send information yourself,
+  using BotFather, for example, according to this instruction:[instructions for creating a bot](https://www.process.st/telegram-bot/)
+
 
 
 ### How to use
@@ -32,6 +35,9 @@
 - To access the GE Magnet Monitor 3 Web interface, this program sends the administrator login and password in open form, make sure that the configuration of your local network prevents this data from reaching third parties;
 - Antivirus and Windows Defender can block the network functions of the program, it is recommended to run the program with administrative rights;
 
+# [Скачать Magnet Monitor Remote Viewer](https://github.com/id-05/MagnetMonitorRemoteViewerServer/raw/master/out/artifacts/MagMon_jar/MagMon.jar)
+
+
 # Magnet Monitor Remote Viewer
 
 ### Описание
@@ -40,10 +46,11 @@
 - Кросплатформенное консольное приложение;
 - Использует HtmlUnitDriver и эмулирует работу оператора с Web-интерфейсом;
 - Прячется в трей;
-- Ведёт лог опроса оборудования;
 - Позволяет просматривать ошибки на устройстве;
 - Предоставляет собственный Web-интерфейс для удаленного контроля;
-
+- Для оперативного удаленного информирования, предусмотрен встроенный telegram-bot,
+  однако создать бота и чат, куда он будет отправлять информацию, вам придется самостоятельно,
+  с помощью BotFather, например вот по этой инструкции:[инструкция по созданию бота](https://1spla.ru/blog/telegram_bot_for_mikrotik/)
 
 ### Как пользоваться
 - На компьютере должен быть установлен Java-интерпретатор, можно скачать отсюда: https://www.java.com/ru/download/ 

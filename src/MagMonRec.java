@@ -15,6 +15,7 @@ public class MagMonRec {
     String Status;
     ArrayList<String> Errors;
     String LastTime;
+    Boolean StatusChange;
 
     String HeLevelCurrent;
     String HeLevelTopCurrent;
@@ -362,5 +363,14 @@ public class MagMonRec {
 
     public void setPass(String pass) {
         Pass = pass;
+    }
+
+
+    public Boolean getStatusChange() {
+        return StatusChange;
+    }
+
+    public void setStatusChange(Boolean statusChange) {
+        StatusChange = statusChange;
     }
 }

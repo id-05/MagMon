@@ -19,15 +19,17 @@ public class MagMonHttpServer {
         server.start();
     }
 
-    static class EchoHandler implements HttpHandler {
+    class EchoHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             StringBuilder builder = new StringBuilder();
+            /*
             Headers headers = exchange.getRequestHeaders();
-//            for (String header : headers.keySet()) {
-//                builder.append("<p>").append(header).append("=")
-//                        .append(headers.getFirst(header)).append("</p>");
-//            }
+            for (String header : headers.keySet()) {
+                builder.append("<p>").append(header).append("=")
+                        .append(headers.getFirst(header)).append("</p>");
+            }
+*/
             builder.append("<head>");
             builder.append("<title>MAGNET MONITOR REMOTE VIEWER</title>");
                     builder.append("<style type=\"text/css\">");

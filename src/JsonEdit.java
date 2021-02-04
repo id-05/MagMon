@@ -5,7 +5,6 @@
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -70,7 +69,6 @@ public class JsonEdit {
                     jsonError.add(bufArray.get(j).trim());
                 }
             jsonBuf.add("Errors", jsonError);
-                //   new
             jsonBuf.addProperty("HeLevelCurrent",node.getHeLevelCurrent());
             jsonBuf.addProperty("HeLevelTopCurrent",node.getHeLevelTopCurrent());
             jsonBuf.addProperty("HeLevelTop",node.getHeLevelTop());
@@ -97,9 +95,6 @@ public class JsonEdit {
             jsonBuf.addProperty("VoltsMinusExternal",node.getVoltsMinusExternal());
             jsonBuf.addProperty("HFOBottomShield",node.getHFOBottomShield());
             jsonBuf.addProperty("MagmonCaseTemp",node.getMagmonCaseTemp());
-
-
-
             jsonObj.add(node.getName(), jsonBuf);
         }
         result = jsonObj.toString();
@@ -151,5 +146,13 @@ public class JsonEdit {
             MagMonList.add(node);
         }
         return MagMonList;
+    }
+
+    public static String GetJsonForBotMenu(String Name, String Data){
+        String buf = null;
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("name",Name);
+        jsonObject.addProperty("data",Data);
+        return jsonObject.toString();
     }
 }

@@ -7,11 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c04baf95-84e3-4c35-afac-a01ed9da64b1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_jsoup_jsoup_1_13_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_seleniumhq_selenium_selenium_htmlunit_driver_2_52_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_seleniumhq_selenium_selenium_java_3_141_59.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_telegram_telegrambots_5_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TelegramBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MagMon_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/MagMon_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MagMon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MagMon.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/MagMon_jar/MagMon.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MagMon_jar/MagMon.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MagMon_jar/MagMon1.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/JsonEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/JsonEdit.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer$AndroidHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer$AndroidHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer$Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer$Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer$EchoHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer$EchoHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MagMonHttpServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/MagMonRec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MagMonRec.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/MainForm$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MainForm$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/MainForm$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MainForm$2.class" afterDir="false" />
@@ -24,20 +35,10 @@
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/MainForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MainForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/MainTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/MainTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MagMon/WebHeandlessMagMon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/WebHeandlessMagMon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MagMon/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JsonEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JsonEdit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MagMonHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MagMonHttpServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MagMonRec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MagMonRec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WebHeandlessMagMon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WebHeandlessMagMon.java" afterDir="false" />
@@ -53,8 +54,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,11 +89,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="146" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="229" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Telnet client" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.33448276" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="project.structure.side.proportion" value="0.29256594" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -114,13 +115,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MagMon" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/MagMon_jar/MagMon.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\keepcaker\Dropbox\PROGRAMS_JAVA\MagMon" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.MainForm" />
+      <item itemvalue="JAR Application.MagMon" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainForm" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -134,119 +146,26 @@
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="232" y="153" key="#Inspections" timestamp="1594599064441">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="232" y="153" key="#Inspections/0.0.1280.984@0.0.1280.984" timestamp="1594599064441" />
-    <state x="232" y="153" width="816" height="724" key="#Intentions" timestamp="1594599034758">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="232" y="153" width="816" height="724" key="#Intentions/0.0.1280.984@0.0.1280.984" timestamp="1594599034758" />
-    <state x="348" y="140" width="1399" height="677" key="#Project_Structure" timestamp="1596465753575">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="232" y="132" key="#Project_Structure/0.0.1280.984@0.0.1280.984" timestamp="1596457038124" />
-    <state x="348" y="140" width="1399" height="677" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1596465753575" />
-    <state x="552" y="181" key="#Servers" timestamp="1595254129564">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="181" key="#Servers/0.0.1920.1040@0.0.1920.1040" timestamp="1595254129564" />
-    <state x="370" y="246" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1596442758037">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="370" y="246" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.984@0.0.1280.984" timestamp="1596442758037" />
-    <state x="740" y="197" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form" timestamp="1594572179627">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="197" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form/0.0.1920.1040@0.0.1920.1040" timestamp="1594572179627" />
-    <state x="94" y="149" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596498685445">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="94" y="149" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1596498685445" />
-    <state x="457" y="412" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1594345339149">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="457" y="412" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1280.984@0.0.1280.984" timestamp="1594345339149" />
-    <state x="510" y="217" key="#com.intellij.ide.util.MemberChooser" timestamp="1597652567099">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="510" y="217" key="#com.intellij.ide.util.MemberChooser/0.0.1280.984@0.0.1280.984" timestamp="1597652567099" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595780236239" />
-    <state x="370" y="281" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1596498681933">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="370" y="281" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.984@0.0.1280.984" timestamp="1596498681933" />
-    <state x="689" y="313" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1594568652025">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="689" y="313" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594568652025" />
-    <state x="470" y="178" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1596457626343">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="470" y="178" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1280.984@0.0.1280.984" timestamp="1596457626343" />
-    <state x="370" y="241" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1594964443980">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="370" y="241" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1280.984@0.0.1280.984" timestamp="1594964443980" />
-    <state x="420" y="236" key="FileChooserDialogImpl" timestamp="1596153231291">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="420" y="236" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1596153231291" />
-    <state x="630" y="249" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595774698352" />
-    <state width="1237" height="277" key="GridCell.Tab.0.bottom" timestamp="1597654662047">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state width="1237" height="277" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1597654662047" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596555693863" />
-    <state width="1237" height="277" key="GridCell.Tab.0.center" timestamp="1597654662047">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state width="1237" height="277" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1597654662047" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596555693863" />
-    <state width="1237" height="277" key="GridCell.Tab.0.left" timestamp="1597654662047">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state width="1237" height="277" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1597654662047" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596555693863" />
-    <state width="1237" height="277" key="GridCell.Tab.0.right" timestamp="1597654662047">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state width="1237" height="277" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1597654662047" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596555693863" />
-    <state x="120" y="69" key="SettingsEditor" timestamp="1596499927777">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="120" y="69" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1596499927777" />
-    <state x="481" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596465610802" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1597939860091">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="445" y="328" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1595208610003" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597939860091" />
-    <state x="516" y="415" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1596464757914">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="344" y="393" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.984@0.0.1280.984" timestamp="1596457622800" />
-    <state x="516" y="415" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1596464757914" />
-    <state x="732" y="414" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1594568831096">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="732" y="414" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594568831096" />
-    <state x="33" y="125" key="new project wizard" timestamp="1595255844982">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="22" y="118" key="new project wizard/0.0.1280.984@0.0.1280.984" timestamp="1594951579317" />
-    <state x="33" y="125" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1595255844982" />
-    <state x="411" y="227" key="run.anything.popup" timestamp="1596499083075">
-      <screen x="0" y="0" width="1280" height="984" />
-    </state>
-    <state x="411" y="227" key="run.anything.popup/0.0.1280.984@0.0.1280.984" timestamp="1596499083075" />
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595696905319" />
-    <state x="455" y="223" width="1008" height="717" key="search.everywhere.popup" timestamp="1596465425693">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1595462207626" />
-    <state x="455" y="223" width="1008" height="717" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596465425693" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NoClassDefFoundError" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

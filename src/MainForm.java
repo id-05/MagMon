@@ -1,10 +1,14 @@
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.sun.net.httpserver.HttpServer;
-//import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -23,6 +27,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.prefs.Preferences;
 
+//import org.telegram.telegrambots.ApiContextInitializer;
+
     public class MainForm extends TrayFrame{
         private CustomTable tableMain;
         public static DefaultTableModel tableModel = new DefaultTableModel();
@@ -37,16 +43,30 @@ import java.util.prefs.Preferences;
         private JButton reloadButton;
         private JButton reloadNowButton;
         private JButton openWebServiceButton;
+        private JButton sendText;
+        private JTextField inputText;
+        private JTextField botToken;
+        private JTextField chatId;
+        private JCheckBox useTB;
+        private JRadioButton sendFullLog;
+        private JRadioButton sendOnlyEvent;
         public static Preferences userPrefs;
         public static JsonParser parser = new JsonParser();
         JsonObject buffJson;
         public static ArrayList<MagMonRec> MagMonList = new ArrayList<>();
-        public Integer timeToMagMonUpdate;
-        public Integer WebPort;
-        TimerTask timerTask;
-        Timer timer;
-        MagMonHttpServer webServer;
-        HttpServer server;
+        public static Integer timeToMagMonUpdate;
+        public static Integer WebPort;
+        public static TimerTask timerTask;
+        public static Timer timer;
+        public static MagMonHttpServer webServer;
+        public static HttpServer server;
+        public static TelegramBot bot = null;
+        Boolean triggerUseTB;
+        public static Boolean BotMode;
+        public static String ChatId;
+        public static String BotToken;
+
+        //private static final String CHATID = "-1001284451115";
 
     public  MainForm() throws IOException {
         super();
@@ -55,7 +75,7 @@ import java.util.prefs.Preferences;
         setToPreferredData();
         setContentPane(TabPane1);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(250,250,800,300);
+        setBounds(250,250,800,350);
         setLocationRelativeTo(null);
         TabPane1.setBackground(Color.orange);
         TabPane1.setForeground(Color.white);
@@ -104,6 +124,13 @@ import java.util.prefs.Preferences;
             public void actionPerformed(ActionEvent e) {
                 MainForm.userPrefs.putInt("WebPort",Integer.valueOf(textField1.getText()));
                 MainForm.userPrefs.putInt("TimeToUpdate", ((Integer) spinner1.getValue()));
+                MainForm.userPrefs.put("TelegramToken", botToken.getText());
+                MainForm.userPrefs.put("TelegramChat", chatId.getText());
+                MainForm.userPrefs.putBoolean("TelegramEnable", useTB.isSelected());
+                MainForm.userPrefs.putBoolean("TelegramBotMode", BotMode);
+                ChatId = chatId.getText();
+                BotToken = botToken.getText();
+                triggerUseTB = useTB.isSelected();
             }
         });
         reloadButton.addActionListener(new ActionListener() {
@@ -130,6 +157,48 @@ import java.util.prefs.Preferences;
                 }
             }
         });
+
+        sendText.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bot.sendMsg(ChatId, inputText.getText());
+            }
+        });
+        useTB.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if(useTB.isSelected()){
+                    botToken.setEnabled(true);
+                    chatId.setEnabled(true);
+                    inputText.setEnabled(true);
+                    sendText.setEnabled(true);
+                    triggerUseTB = true;
+                    sendFullLog.setEnabled(true);
+                    sendOnlyEvent.setEnabled(true);
+                }else{
+                    botToken.setEnabled(false);
+                    chatId.setEnabled(false);
+                    inputText.setEnabled(false);
+                    sendText.setEnabled(false);
+                    sendFullLog.setEnabled(false);
+                    sendOnlyEvent.setEnabled(false);
+                    triggerUseTB = true;
+                    triggerUseTB = false;
+                }
+            }
+        });
+        sendFullLog.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                BotMode = true;
+            }
+        });
+        sendOnlyEvent.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                BotMode = false;
+            }
+        });
     }
 
     public void Initialisation(){
@@ -137,6 +206,41 @@ import java.util.prefs.Preferences;
         doc.setDocumentFilter(new DigitFilter());
         String buf = userPrefs.get("JsonMagMonList", "{}");
         buffJson = MainForm.parser.parse(buf).getAsJsonObject();
+        triggerUseTB = userPrefs.getBoolean("TelegramEnable",false);
+        BotToken = userPrefs.get("TelegramToken", "");
+        ChatId = userPrefs.get("TelegramChat","");
+        BotMode = userPrefs.getBoolean("TelegramBotMode",false);
+        useTB.setSelected(triggerUseTB);
+        botToken.setText(BotToken);
+        chatId.setText(ChatId);
+        if(triggerUseTB){
+            botToken.setEnabled(true);
+            chatId.setEnabled(true);
+            inputText.setEnabled(true);
+            sendText.setEnabled(true);
+            sendFullLog.setEnabled(true);
+            sendOnlyEvent.setEnabled(true);
+        }else{
+            botToken.setEnabled(false);
+            chatId.setEnabled(false);
+            inputText.setEnabled(false);
+            sendText.setEnabled(false);
+            sendFullLog.setEnabled(false);
+            sendOnlyEvent.setEnabled(false);
+        }
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(sendFullLog);
+        group.add(sendOnlyEvent);
+
+        if(!BotMode){
+            //sendFullLog.setSelected(false);
+            sendOnlyEvent.setSelected(true);
+        }else{
+            sendFullLog.setSelected(true);
+            //sendOnlyEvent.setSelected(false);
+        }
+
         MagMonList = JsonEdit.GetMagMonList(buffJson);
         tableModel.setRowCount(0);
         Object[] columnsHeader = new String[]{"Name", "HePress",
@@ -150,24 +254,49 @@ import java.util.prefs.Preferences;
         SpinnerModel spinnerModel = new SpinnerNumberModel(1,1,44,1);//Model[arr];
         spinner1.setModel(spinnerModel);
         spinnerModel.setValue(timeToMagMonUpdate);
+        //botInit();
     };
 
-    public void reloadTimeAndWeb(){
+    public static void botInit(){
+       // ApiContextInitializer.init();
+        TelegramBotsApi botsApi = null;
+        try {
+            botsApi = new TelegramBotsApi(DefaultBotSession.class);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+        bot = new TelegramBot(BotToken);
+
+
+        ///!!!!!!!!!повторная регистрация бота вызывает ошибку!
+
+        try {
+            botsApi.registerBot(bot);
+            //botsApi.
+        } catch (TelegramApiException telegramApiRequestException) {
+            telegramApiRequestException.printStackTrace();
+            System.out.println(telegramApiRequestException);
+        }
+
+    }
+
+    public static void reloadTimeAndWeb(){
         timeToMagMonUpdate = userPrefs.getInt("TimeToUpdate", 15);
         WebPort = userPrefs.getInt("WebPort", 8765);
         timerStart();
         WebServerStart();
+        botInit();
     }
 
-    public void timerStart(){
+    public static void timerStart(){
         timerTask = null;
         timer = null;
-        timerTask = new MainTask(textArea1);
+        timerTask = new MainTask(/*textArea1*/);
         timer = new Timer(true);
         timer.scheduleAtFixedRate(timerTask, 0, timeToMagMonUpdate *60*1000);
     }
 
-    public void WebServerStart(){
+    public static void WebServerStart(){
         webServer = new MagMonHttpServer();
         try {
             webServer.main(WebPort,server);
@@ -220,7 +349,13 @@ import java.util.prefs.Preferences;
         MainFormNew.setIconImage(icon);
     }
 
-    private void createUIComponents() {
+        @Override
+        protected void finalize() throws Throwable {
+            super.finalize();
+            bot.onClosing();
+        }
+
+        private void createUIComponents() {
         // TODO: place custom component creation code here
     }
 

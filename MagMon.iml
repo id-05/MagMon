@@ -7,9 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="org.seleniumhq.selenium:selenium-java:3.141.59" level="application" />
-    <orderEntry type="library" name="org.seleniumhq.selenium:selenium-htmlunit-driver:2.52.0" level="application" />
-    <orderEntry type="library" name="org.jsoup:jsoup:1.13.1" level="application" />
-    <orderEntry type="library" name="com.google.code.gson:gson:2.8.6" level="application" />
+    <orderEntry type="library" name="org.seleniumhq.selenium:selenium-java:3.141.59" level="project" />
+    <orderEntry type="library" name="org.jsoup:jsoup:1.13.1" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="org.seleniumhq.selenium:selenium-htmlunit-driver:2.52.0" level="project" />
+    <orderEntry type="library" name="org.telegram:telegrambots:5.0.1" level="project" />
   </component>
 </module>

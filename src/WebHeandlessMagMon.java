@@ -26,7 +26,6 @@ public class WebHeandlessMagMon {
             final HtmlTextInput textLogin = form.getInputByName("UserName");
             final HtmlPasswordInput textPass = form.getInputByName("PassWord");
             final HtmlSubmitInput button = form.getInputByValue("Submit");
-
             // Записывает в найденное поле нужное значение.
             textLogin.setValueAttribute(MagMon.Login);
             textPass.setValueAttribute(MagMon.Pass);
@@ -48,7 +47,7 @@ public class WebHeandlessMagMon {
         HtmlForm form2 = page3.getFormByName("curVal");
         HtmlTextInput textBUF = form2.getInputByName("Ch15");
         MainForm.MagMonList.get(NumberMagMonList).setHePress(textBUF.getText());
-        MainForm.MagMonList.get(NumberMagMonList).setStatus("ok");
+        //MainForm.MagMonList.get(NumberMagMonList).setStatus("");
         Date date = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm");
 
@@ -144,14 +143,11 @@ public class WebHeandlessMagMon {
         textBUF = form2.getInputByName("Ch32");
         MainForm.MagMonList.get(NumberMagMonList).setMagmonCaseTemp(textBUF.getText());
 
-
-
         page3 = webClient.getPage("http://"+MagMon.IP+":"+MagMon.Port+"/alarms.html");
         WebResponse response = page3.getWebResponse();
         String content = response.getContentAsString();
         Document doc = (Document) Jsoup.parseBodyFragment(content);
         Elements fullHtml = doc.getElementsByTag("pre");
-
         ArrayList<String> bufList = ErrParse(fullHtml.toString());
         String buf;
         if(bufList.size()<1){
@@ -160,6 +156,16 @@ public class WebHeandlessMagMon {
         else{
             buf = bufList.size()+" Error";
         }
+        if(MainForm.MagMonList.get(NumberMagMonList).getStatus()!=null){
+            if(MainForm.MagMonList.get(NumberMagMonList).getStatus().equals(buf)){
+                MainForm.MagMonList.get(NumberMagMonList).setStatusChange(false);
+            }else{
+                MainForm.MagMonList.get(NumberMagMonList).setStatusChange(true);
+                }
+        }else{
+            MainForm.MagMonList.get(NumberMagMonList).setStatusChange(true);
+        }
+
         MainForm.MagMonList.get(NumberMagMonList).setStatus(buf);
         MainForm.MagMonList.get(NumberMagMonList).setErrors(bufList);
 
